@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Card, CardContent } from '@mui/material';
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -7,11 +8,17 @@ import React from 'react';
 
 function AboutPage() {
   return (
-    <div className="container">
-      <div>
-        <p>This about page is for anyone to read!</p>
-      </div>
-    </div>
+    <center>
+      <Card sx={{ width: '75%', boxShadow: 6,}}>
+        <CardContent>
+        <h4> About </h4>
+        <h6> This is a place to practice coding with React. </h6>
+        <Button className="btn" variant="outlined">
+          Test
+        </Button>
+        </CardContent>
+      </Card>
+    </center>
   );
 }
 

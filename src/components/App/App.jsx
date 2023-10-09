@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import './App.css';
 
@@ -31,7 +32,20 @@ function App() {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#A8A900',
+      },
+      secondary: {
+        main: '#C70039'
+      },
+    }
+  }); // End theme
+
   return (
+    <ThemeProvider theme={theme}>
+
     <Router>
       <div>
         <Nav />
@@ -118,6 +132,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 
