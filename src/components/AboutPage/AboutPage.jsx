@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, CardContent } from '@mui/material';
+import { Button, Card, CardContent, Typography } from '@mui/material';
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -9,13 +9,21 @@ import { Button, Card, CardContent } from '@mui/material';
 function AboutPage() {
   return (
     <center>
-      <Card sx={{ width: '75%', boxShadow: 6,}}>
+      <Card sx={{ width: '75%', boxShadow: 6, }}>
         <CardContent>
-        <h4> About </h4>
-        <h6> This is a place to practice coding with React. </h6>
-        <Button className="btn" variant="outlined">
-          Test
-        </Button>
+          <Typography variant="h2"> About </Typography>  
+          <h6> This is a place to practice coding with React. </h6>
+
+          <Button variant="outlined">
+            Test
+          </Button>
+
+          <br /> <br />
+
+          <Button variant="contained">
+            Test
+          </Button>
+
         </CardContent>
       </Card>
     </center>

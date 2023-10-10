@@ -10,7 +10,8 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Practice W/ React</h2>
+      <img src="./practice-w-react-logo.png" className="navImg" alt="Practice W/ React" width="50%" height="50%" style={{maxWidth: 1100,}}  />
+
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -29,7 +30,7 @@ function Nav() {
             </Link>
 
             <Link className="navLink" to="/info">
-              Info Page
+              Info 
             </Link>
 
             <LogOutButton className="navLink" />

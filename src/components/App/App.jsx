@@ -35,13 +35,16 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#A8A900',
+        main: '#ff8b45',
       },
       secondary: {
         main: '#C70039'
       },
     }
   }); // End theme
+
+  // logo gradient colors: orange #ff8b45 pink #ff2f5b purple #591269 blue #36126a
+
 
   return (
     <ThemeProvider theme={theme}>
