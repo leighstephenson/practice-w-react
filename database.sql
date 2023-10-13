@@ -11,13 +11,14 @@ CREATE TABLE "user" (
     "access_level" INT DEFAULT 0
 );
 
-CREATE TABLE "pets" (
+CREATE TABLE "notelist" (
     "id" SERIAL PRIMARY KEY,
-    "name" VARCHAR(80) NOT NULL,
-    "user_id" INT REFERENCES "user"
+    "user_id" INT REFERENCES "user",
+    "title" VARCHAR(80) NOT NULL,
+    "dateadded" DATE,
+    "note" VARCHAR (1000)
 );
 
-INSERT INTO "pets" ("id", "name", "user_id")
-VALUES ('1', 'Fluffy', '1'),
-('2', 'Tom', '1'),
-('3', 'Kiki', '1');
+INSERT INTO "notelist" ("id", "user_id", "title", "dateadded", "note")
+VALUES ('1', '1', 'Lets work on the notes', '10-12-2023','The SQL query is the first step!')
+;
