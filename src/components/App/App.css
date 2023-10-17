@@ -32,7 +32,7 @@ Button
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: #ff2f5b;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -55,7 +55,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #bf2043;
   text-decoration: none;
 }
 
@@ -109,4 +109,47 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+/*orange #ff8b45 pink #ff2f5b purple #591269 blue #36126a */
+
+.openingMessage{
+  --bg-size: 400%;
+  --color-one: #591269;
+  --color-two: #ff2f5b;
+  --color-three: #ff8b45;
+  --color-four: #36126a;
+  font-size: clamp(3rem, 25vmin, 8rem);
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-three),
+                var(--color-two),
+                var(--color-one),
+                var(--color-four)
+
+                ) 0 0 / var(--bg-size) 100%;
+                color: transparent;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-background-clip: text;
+                animation: move-bg 8s infinite linear;
+              }
+
+              @keyframes move-bg {
+                to {
+                  background-position: var(--bg-size) 0;
+                }
+              }
+
+              @media (prefers-reduced-motion: no-preference) {
+  .boujee-text {
+    animation: move-bg 8s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
 }
