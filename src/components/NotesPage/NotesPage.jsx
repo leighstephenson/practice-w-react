@@ -15,49 +15,50 @@ function NotesPage() {
     const [note, setNote] = useState('');
 
     //! States
-    let [newNote, setNewNote] = useState({ noteTitle: '', dateAdded: '', note: '' })
+    let [newNote, setNewNote] = useState({ noteTitle: '', dateAdded: '', noteContent: '' })
 
     // use history push to redirect
 
-//! Refresh
-    const refreshPage = () => {
-        setTimeout(() => {
-          window.location.reload(false);
-        }, 10);
-      }
+    // //! Refresh
+    // const refreshPage = () => {
+    //     setTimeout(() => {
+    //         window.location.reload(false);
+    //     }, 10);
+    // }
 
     //! Add/Submit
-    // const addNewNote = (event) => {
-    //     event.preventDefault();
-    //     dispatchEvent({ type: 'ADD_NEW_NOTE', payload: newNote, setNewNote: setNewNote });
-    //     setNewNote({ noteTitle: '', dateAdded: '', note: '' });
-    // }
     const addNewNote = (event) => {
-        if (!user || !user.id) {
-          console.error("User is not defined or does not have an ID!");
-          return;
-        }
-    
-        if (!user || !user.id) {
-          setNotification("User information is missing. Please log in again or contact support.");
-          return;
-        }
-        const noteData = {
-          userId: user.id,
-          noteTitle,
-          dateadded,
-          note
-        };
-    
-        console.log('in addNewNote on NotesPage', noteData);
-    
-        dispatch({
-          type: 'ADD_NOTE',
-          payload: noteData,
-        });
-        setNotification("Note added successfully!");
-        refreshPage();
-      };
+        event.preventDefault();
+        console.log('in add/submit')
+        dispatch({ type: 'ADD_NEW_NOTE', payload: newNote, setNewNote: setNewNote });
+        setNewNote({ noteTitle: '', dateAdded: '', noteContent: '' });
+    }
+
+    // const addNewNote = (event) => {
+    //     if (!user || !user.id) {
+    //         console.error("User is not defined or does not have an ID!");
+    //         return;
+    //     }
+
+    //     if (!user || !user.id) {
+    //         setNotification("User information is missing. Please log in again or contact support.");
+    //         return;
+    //     }
+    //     const noteData = {
+    //         userId: user.id,
+    //         noteTitle,
+    //         dateadded,
+    //         note
+    //     };
+
+    //     console.log('in addNewNote on NotesPage', noteData);
+
+    //     dispatch({
+    //         type: 'ADD_NOTE',
+    //         payload: noteData,
+    //     });
+    //     setNotification("Note added successfully!");
+    // };
 
     //! Handle changes
     // Title
@@ -65,12 +66,12 @@ function NotesPage() {
         setNewNote({ ...newNote, noteTitle: event.target.value });
     }
 
-    // Date
+    // Date added
     const handleDateChange = (event) => {
-        setNewNote({ ...newNote, noteDate: event.target.value });
+        setNewNote({ ...newNote, dateAdded: event.target.value });
     }
 
-    //Note
+    //Note content
     const handleNoteContentChange = (event) => {
         setNewNote({ ...newNote, noteContent: event.target.value });
     }
@@ -116,8 +117,9 @@ function NotesPage() {
                     <TextField
                         label="Note"
                         type="text"
+                        required
                         onChange={handleNoteContentChange}
-                        rows="5" multiline required
+                        rows="5" multiline 
                         sx={{
                             width: 250,
                         }}
