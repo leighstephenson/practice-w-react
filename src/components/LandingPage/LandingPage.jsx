@@ -1,47 +1,41 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
+import { Typography } from '@mui/material';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
+import LoginForm from '../LoginForm/LoginForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
   const history = useHistory();
 
-  const onLogin = (event) => {
-    history.push('/login');
+  const onRegister = (event) => {
+    history.push('/registration');
   };
 
   return (
-    <div className="container">
-      <h2>{heading}</h2>
+    <>
+      <center>
+        <Typography variant="h3" className='openingMessage' 
+        sx={{fontWeight: 'bold',}}> WELCOME!</Typography>
 
-      <div className="grid">
-        <div className="grid-col grid-col_8">
-          <p>
+        <Typography>
           This is a place to practice code.
-          </p>
 
-          <p>
-           I have not yet decided what to do here. We're gonna figure
-           it out as we go and make lots of changes along the way!
-          </p>
+          I have not yet decided what to do here. We're gonna figure
+          it out as we go and make lots of changes along the way!
+        </Typography>
+        <br /> <br />
 
+        <LoginForm />
 
-        </div>
-        <div className="grid-col grid-col_4">
-          <RegisterForm />
-
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
-        </div>
-      </div>
-    </div>
+        <h5> New Account? </h5>
+        <button className="btn btn_sizeSm" onClick={onRegister}>
+          Register 
+        </button>
+      </center>
+    </>
   );
 }
 
