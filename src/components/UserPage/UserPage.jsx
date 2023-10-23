@@ -12,11 +12,15 @@ function UserPage() {
 
         <Typography variant="h5"> Welcome, {user.username}! </Typography>
         <br />
+        
         <Typography variant="h3" className='openingMessage'> Let's get coding!</Typography>
 
-        <p>Your ID is: {user.id}</p>
+        <Typography sx={{margin: 4,}}> Your ID is: {user.id} </Typography>
 
         <LogOutButton className="btn" />
+        <br/> <br/>
+
+        <Typography variant="h6"> Notes will display here </Typography>
 
       </div>
     </center>
