@@ -18,13 +18,13 @@ function LandingPage() {
     <>
       <center>
         <Typography variant="h3" className='openingMessage' 
-        sx={{fontWeight: 'bold',}}> WELCOME!</Typography>
+        sx={{fontWeight: 'bold',}}> WELCOME! </Typography>
 
         <Typography>
           This is a place to practice code.
 
-          I have not yet decided what to do here. We're gonna figure
-          it out as we go and make lots of changes along the way!
+          I have not yet decided what to do here. Currently working on adding and 
+          displaying notes. 
         </Typography>
         <br /> <br />
 
