@@ -32,6 +32,7 @@ function NotesPage() {
         console.log('in add/submit')
         dispatch({ type: 'ADD_NEW_NOTE', payload: newNote, setNewNote: setNewNote });
         setNewNote({ noteTitle: '', dateAdded: '', noteContent: '' });
+        history.push('/user')
     }
 
     // const addNewNote = (event) => {
@@ -83,7 +84,7 @@ function NotesPage() {
 
                 <br /> <br />
 
-                <Typography variant="h4"> Add New Note</Typography>
+                <Typography variant="h4"> Add New Note </Typography>
 
                 <br />
 
@@ -102,7 +103,7 @@ function NotesPage() {
 
                     {/*//! Date Input */}
                     <TextField
-                        type="date"
+                        type="Date"
                         onChange={handleDateChange}
                         required
                         sx={{
