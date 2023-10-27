@@ -1,26 +1,63 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Typography } from '@mui/material';
+import Card from '@mui/material/Card';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+
+  //! Hooks and store
+  const dispatch = useDispatch();
+  const notes = useSelector(store => store.notes);
+
+  //! Fetch list of notes
+  useEffect(() => {
+    dispatch({ type: 'FETCH_NOTES' });
+  }, []);
+
+  //! Selects note
+  const noteSelection = (note) => {
+    dispatch({ type: 'SET_SELECTED_NOTE', payload: note})
+  };
+
+  //! What displays
   return (
     <center>
       <div className="container">
 
         <Typography variant="h5"> Welcome, {user.username}! </Typography>
         <br />
-        
+
         <Typography variant="h3" className='openingMessage'> Let's get coding!</Typography>
 
-        <Typography sx={{margin: 4,}}> Your ID is: {user.id} </Typography>
+        <Typography sx={{ margin: 4, }}> Your ID is: {user.id} </Typography>
 
         <LogOutButton className="btn" />
-        <br/> <br/>
+        <br /> <br />
 
-        <Typography variant="h6"> Notes will display here </Typography>
+
+      </div>
+
+      <div className='notesList'>
+        <Typography variant="h6"> Current notes: </Typography>
+
+        <br/> <br/>
+        
+        {notes.map(note => {
+          return (
+            <Card sx={{ marginBottom: 6, textAlign: 'center', boxShadow: 7, maxWidth: 750, minWidth: 50}}
+              onClick={() => noteSelection(note)} >
+
+              <h4> {note.notetitle} </h4>
+
+              <p>{note.dateadded} </p>
+
+              <p> {note.notecontent}</p>
+            </Card>
+          );
+        })}
 
       </div>
     </center>
