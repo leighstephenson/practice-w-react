@@ -18,7 +18,7 @@ function* fetchAllNotes() {
         const notes = yield axios.get('/api/notes');
         yield put({ type: 'SET_NOTES', payload: notes.data });
     } catch (error) {
-        console.log('Error in fetchAllNotes in kit.saga');
+        console.log('Error in fetchAllNotes in note.saga');
     }
 }
 

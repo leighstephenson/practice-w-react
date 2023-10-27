@@ -2,8 +2,8 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-  //*TODO put to edit, 
-//! ADD a new note
+  //*TODO edit, delete
+//! Add a new note
 router.post('/', (req, res) => {
   const insertNoteQuery = `INSERT INTO "notelist"
   ("user_id", "title", "dateadded", "note") 
@@ -17,38 +17,17 @@ router.post('/', (req, res) => {
     })
 });
 
-  // //*! POST /: ADD NOTE
-  // router.post('/', async (req, res) => { 
-  //   // Data from the client (form)
-  //   const note = req.body;
-  //   try {
-  //       const insertNoteQuery = 
-  //       `INSERT INTO "notelist" 
-  //       ("user_id",   
-  //       "title",
-  //       "dateadded",
-  //       "note"
-  //       ) 
-  //   VALUES ($1, $2, $3, $4);`
-        
-  //       await pool.query(insertNoteQuery,[
-  //         req.user.id, // the logged in user
-  //         note.title,
-  //         note.dateadded,
-  //         note.note
-  //       ]);
-    
-  //       console.log('In router. Inserted note:', note);
-        
-  //       res.sendStatus(200);
-  //   } catch (error) {
-  //       console.log(error);
-  //       console.log('Error adding note:', error);
-  //       res.sendStatus(500);
-  //   }
-  // });
-
-
-
+//! Get all notes
+router.get('/', (req, res) => {
+  const query = `SELECT * FROM "notelist" ORDER BY "id" DESC;`;
+  pool.query(query)
+  .then(result => {
+    res.send(result.rows);
+  })
+  .catch((error) => {
+    console.log('Error in get all notes in router', error);
+    res.sendStatus(500)
+  })
+});
 
 module.exports = router;
