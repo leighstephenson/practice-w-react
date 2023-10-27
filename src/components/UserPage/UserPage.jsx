@@ -51,14 +51,15 @@ function UserPage() {
             <Card key={note.id} sx={{ marginBottom: 6, textAlign: 'center', boxShadow: 7, maxWidth: 750, minWidth: 50}}
               onClick={() => noteSelection(note)} >
 
-              <h4> {note.notetitle} </h4>
+              <h4> Title: {note.notetitle} </h4>
 
-              <p>{note.dateadded} </p>
+              <p>Date Added: {note.dateadded} </p>
 
-              <p> {note.notecontent}</p>
+              <p> Note: {note.notecontent}</p>
             </Card>
           );
-        })}
+        })
+        }
 
       </div>
     </center>
