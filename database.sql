@@ -14,11 +14,12 @@ CREATE TABLE "user" (
 CREATE TABLE "notelist" (
     "id" SERIAL PRIMARY KEY,
     "user_id" INT REFERENCES "user",
-    "title" VARCHAR(80) NOT NULL,
+    "notetitle" VARCHAR(80) NOT NULL,
     "dateadded" DATE,
-    "note" VARCHAR (1000)
+    "notecontent" VARCHAR (1000)
 );
 
-INSERT INTO "notelist" ("id", "user_id", "title", "dateadded", "note")
-VALUES ('1', '1', 'Lets work on the notes', '10-12-2023','The SQL query is the first step!')
+INSERT INTO "notelist" ("id", "user_id", "notetitle", "dateadded", "notecontent")
+VALUES ('1', '1', 'Lets work on the notes', '10-12-2023','The SQL query is the first step!'),
+('2', '1', 'Work on getting the notes to display'm '10-19-2023', 'Making Progress')
 ;
