@@ -20,6 +20,7 @@ function UserPage() {
   //! Selects note
   const noteSelection = (note) => {
     dispatch({ type: 'SET_SELECTED_NOTE', payload: note})
+    console.log(`You selected the note with this title: ${note.notetitle}`);
   };
 
   //! What displays
@@ -47,7 +48,7 @@ function UserPage() {
         
         {notes.map(note => {
           return (
-            <Card sx={{ marginBottom: 6, textAlign: 'center', boxShadow: 7, maxWidth: 750, minWidth: 50}}
+            <Card key={note.id} sx={{ marginBottom: 6, textAlign: 'center', boxShadow: 7, maxWidth: 750, minWidth: 50}}
               onClick={() => noteSelection(note)} >
 
               <h4> {note.notetitle} </h4>

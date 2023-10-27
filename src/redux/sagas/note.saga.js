@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
-
+//TODO getting stuck at internal server error here
 //! Add new note
 function* addNewNote(action) {
     try {        
@@ -18,7 +18,7 @@ function* fetchAllNotes() {
         const notes = yield axios.get('/api/notes');
         yield put({ type: 'SET_NOTES', payload: notes.data });
     } catch (error) {
-        console.log('Error in fetchAllNotes in note.saga');
+        console.log('Error in fetchAllNotes in note.saga',  error);
     }
 }
 
