@@ -23,6 +23,10 @@ function AboutPage() {
           <Button variant="contained">
             Test
           </Button>
+          
+          <br /> <br />
+
+          <button className="btn"> Test </button>
 
         </CardContent>
       </Card>

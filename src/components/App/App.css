@@ -111,6 +111,12 @@ input {
   margin-bottom: 10px;
 }
 
+hr {
+  background-color: #ff8b45;
+  height: 5px;
+  width: 90%;
+}
+
 /*orange #ff8b45 pink #ff2f5b purple #591269 blue #36126a */
 
 .openingMessage{

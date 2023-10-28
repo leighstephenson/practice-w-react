@@ -3,9 +3,10 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { Typography } from '@mui/material';
 import Card from '@mui/material/Card';
+import './UserPage.css';
+
 
 function UserPage() {
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
 
   //! Hooks and store
@@ -41,6 +42,8 @@ function UserPage() {
 
       </div>
 
+      <hr/>
+
       <div className='notesList'>
         <Typography variant="h6"> Current notes: </Typography>
 
@@ -48,8 +51,15 @@ function UserPage() {
         
         {notes.map(note => {
           return (
-            <Card key={note.id} sx={{ marginBottom: 6, textAlign: 'center', boxShadow: 7, maxWidth: 750, minWidth: 50}}
-              onClick={() => noteSelection(note)} >
+            <Card key={note.id} className="noteCards"
+            onClick={() => noteSelection(note)} 
+            sx={{ marginBottom: 6, 
+              textAlign: 'center', 
+              boxShadow: 7, 
+              width: '95%',
+              maxWidth: 750, 
+              minWidth: 50}}
+              >
 
               <h4> Title: {note.notetitle} </h4>
 

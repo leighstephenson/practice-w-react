@@ -1,0 +1,14 @@
+  /*orange #ff8b45 pink #ff2f5b purple #591269 blue #36126a */
+
+
+  /* sx={{ 
+    marginBottom: 6, 
+    textAlign: 'center', 
+    boxShadow: 7, 
+    maxWidth: 750, 
+    minWidth: 50}} */
+
+  .noteCards {
+      outline-style: groove;
+      outline-color: #ff8b45;
+  }
