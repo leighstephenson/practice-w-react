@@ -60,20 +60,25 @@ function UserPage() {
                 width: '85%',
                 paddingTop: 3,
                 paddingBottom: 3,
+                paddingLeft: 2,
+                paddingRight: 2,
                 maxWidth: 750,
                 minWidth: 50
               }}
             >
 
-              <h4> Title:  </h4>
-              <p>{note.notetitle} </p>
+              <h2 className='noteDescriptors'> Title:  </h2>
 
-              <h5>Date Added: </h5>
-              <p>{note.dateadded}  </p>
+              <Typography variant="h5">{note.notetitle} </Typography>
 
-              <p> Note: </p>
+              <br />
+
+              <h2 className='noteDescriptors'> Note: </h2>
               <p>{note.notecontent} </p>
               
+              <Typography variant="h7"> Date Added: {note.dateadded}</Typography>
+
+
             </Card>
           );
         })

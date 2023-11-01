@@ -11,4 +11,14 @@
   .noteCards {
       outline-style: groove;
       outline-color: #ff8b45;
+      outline-width: 3px;
   }
+
+  .noteDescriptors {
+    color: #ff2f5b;
+    font-weight: bold;
+    background-color: #ffe2e8;
+    outline-color: #ff8b45;
+    outline-style: solid;
+  }
+
