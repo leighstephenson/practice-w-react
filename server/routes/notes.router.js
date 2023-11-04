@@ -4,7 +4,7 @@ const router = express.Router();
 
   //*TODO edit, delete
 
-//TODO running into error here, "cant determine datatipe for $1"
+//TODO running into error here, "cant determine data type for $1"
 //! Add a new note
 router.post('/', (req, res) => {
   const insertNoteQuery = `INSERT INTO "notelist"
