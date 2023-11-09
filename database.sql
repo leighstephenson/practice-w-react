@@ -19,7 +19,3 @@ CREATE TABLE "notelist" (
     "notecontent" VARCHAR (1000)
 );
 
-INSERT INTO "notelist" ("id", "user_id", "notetitle", "dateadded", "notecontent")
-VALUES ('1', '1', 'Lets work on the notes', '10-12-2023','The SQL query is the first step!'),
-('2', '1', 'Work on getting the notes to display'm '10-19-2023', 'Making Progress')
-;

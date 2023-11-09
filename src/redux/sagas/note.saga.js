@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
-//TODO getting stuck at internal server error here
 //! Add new note
 function* addNewNote(action) {
     try {        

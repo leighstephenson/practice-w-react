@@ -8,8 +8,8 @@ const router = express.Router();
 //! Add a new note
 router.post('/', (req, res) => {
   const insertNoteQuery = `INSERT INTO "notelist"
-  ("user_id", "notetitle", "dateadded", "notecontent") 
-  VALUES (${req.user.id}, $2, $3, $4) RETURNING "id";`
+  ("notetitle", "dateadded", "notecontent") 
+  VALUES ($1, $2, $3) RETURNING "id";`
 
   pool.query(insertNoteQuery, [req.body.noteTitle, req.body.dateAdded, req.body.noteContent])
     .then(() => {
