@@ -10,7 +10,7 @@ function Nav() {
   return (
     <>
       <center>
-        <div className="nav">
+        <div className="navImage">
           <Link to="/home">
             <img src="./practice-w-react-logo.png" alt="Practice W/ React" width="50%" height="50%" style={{ maxWidth: 1100, }} />
           </Link>

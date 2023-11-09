@@ -1,4 +1,4 @@
-.nav {
+.navImage {
   /* flex box layout */
   display: flex;
   justify-content: center;
@@ -6,6 +6,7 @@
   background-color: #dab7e2;
   overflow: hidden;
   margin-bottom: -15px;
+  min-width: 500px;
 }
 
 .nav a {
@@ -40,6 +41,7 @@
 .linkDiv {
   width: 100%;
   background-color: #dab7e2;
+  min-width: 500px;
 }
 
 .navLink:hover {

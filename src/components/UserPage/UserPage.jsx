@@ -63,7 +63,7 @@ function UserPage() {
                 paddingLeft: 2,
                 paddingRight: 2,
                 maxWidth: 750,
-                minWidth: 50
+                minWidth: '25%',
               }}
             >
 

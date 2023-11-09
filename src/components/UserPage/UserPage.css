@@ -12,6 +12,7 @@
       outline-style: groove;
       outline-color: #ff8b45;
       outline-width: 3px;
+      min-width: 25%;
   }
 
   .noteDescriptors {
@@ -20,5 +21,7 @@
     background-color: #ffe2e8;
     outline-color: #ff8b45;
     outline-style: solid;
+    min-width: 25%;
+
   }
 
