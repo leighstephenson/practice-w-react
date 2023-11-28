@@ -1,8 +1,9 @@
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, Card } from "@mui/material";
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
+import './NotesPage.css'
 
 function NotesPage() {
     //! Hooks
@@ -35,32 +36,6 @@ function NotesPage() {
         history.push('/user')
     }
 
-    // const addNewNote = (event) => {
-    //     if (!user || !user.id) {
-    //         console.error("User is not defined or does not have an ID!");
-    //         return;
-    //     }
-
-    //     if (!user || !user.id) {
-    //         setNotification("User information is missing. Please log in again or contact support.");
-    //         return;
-    //     }
-    //     const noteData = {
-    //         userId: user.id,
-    //         noteTitle,
-    //         dateadded,
-    //         note
-    //     };
-
-    //     console.log('in addNewNote on NotesPage', noteData);
-
-    //     dispatch({
-    //         type: 'ADD_NOTE',
-    //         payload: noteData,
-    //     });
-    //     setNotification("Note added successfully!");
-    // };
-
     //! Handle changes
     // Title
     const handleTitleChange = (event) => {
@@ -80,57 +55,65 @@ function NotesPage() {
     return (
         <>
             <center>
-                <Typography> Jot down some notes! Express your thoughts here. </Typography>
+                <p className="noteIntro"> You can express your thoughts here.<br />
+                    Jot down some notes! </p>
 
                 <br /> <br />
 
-                <Typography variant="h4"> Add New Note </Typography>
+                <Card sx={{
+                    maxWidth: '65%',
+                    boxShadow: 5,
+                    padding: 4,
+                }}>
+                    <Typography variant="h4"> Add New Note </Typography>
 
-                <br />
+                    <br />
 
-                <form onSubmit={addNewNote} autoComplete="off">
+                    <form onSubmit={addNewNote} autoComplete="off">
 
-                    {/*//! Name Input */}
-                    <TextField
-                        label="Title"
-                        onChange={handleTitleChange}
-                        required
-                        sx={{
-                            width: 250,
-                        }}
-                    />
-                    <br /> <br />
+                        {/*//! Name Input */}
+                        <TextField
+                            label="Title"
+                            onChange={handleTitleChange}
+                            required
+                            sx={{
+                                width: 250,
+                            }}
+                        />
+                        <br /> <br />
 
-                    {/*//! Date Input */}
-                    <TextField
-                        type="Date"
-                        onChange={handleDateChange}
-                        required
-                        sx={{
-                            width: 250,
-                        }}
-                    />
-                    <br /> <br />
+                        {/*//! Date Input */}
+                        <TextField
+                            type="Date"
+                            onChange={handleDateChange}
+                            required
+                            sx={{
+                                width: 250,
+                            }}
+                        />
+                        <br /> <br />
 
-                    {/*//! Note Content Input */}
-                    <TextField
-                        label="Note"
-                        type="text"
-                        required
-                        onChange={handleNoteContentChange}
-                        rows="5" multiline 
-                        sx={{
-                            width: 250,
-                        }}
-                    />
-                    <br /> <br />
+                        {/*//! Note Content Input */}
+                        <TextField
+                            label="Note"
+                            type="text"
+                            required
+                            onChange={handleNoteContentChange}
+                            rows="5" multiline
+                            sx={{
+                                width: 250,
+                            }}
+                        />
+                        <br /> <br />
 
-                    {/*//! Submit Button */}
-                    <Button type="submit" variant="contained">
-                        Save
-                    </Button>
+                        {/*//! Submit Button */}
+                        <button type="submit" className="btn">
+                            Save
+                        </button>
 
-                </form>
+                    </form>
+                </Card>
+
             </center>
 
         </>)

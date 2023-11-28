@@ -16,6 +16,7 @@ function Nav() {
           </Link>
         </div>
       </center>
+      
       <center>
         <div className="linkDiv">
           {/* If no user is logged in, show these links */}
