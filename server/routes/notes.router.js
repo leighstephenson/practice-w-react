@@ -2,9 +2,23 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-  //*TODO edit, delete
+//*TODO edit
 
-//TODO running into error here, "cant determine data type for $1"
+//! Delete note
+router.delete('/:id', (req, res) => {
+  let deletedNote = req.params.id;
+  //Query to delete specific note based on id
+  let deleteNoteQuery = `DELETE FROM "notelist" WHERE "id" = $1;`
+  pool.query(deleteNoteQuery, [deletedNote])
+  .then(() => {
+    res.sendStatus(200);
+  })
+  .catch((error) => {
+    console.log('Error in DELETE on allNotes.router', error)
+    res.sendStatus(500);
+  })
+});
+
 //! Add a new note
 router.post('/', (req, res) => {
   const insertNoteQuery = `INSERT INTO "notelist"

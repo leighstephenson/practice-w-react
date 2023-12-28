@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import './NotesPage.css'
 
+//TODO Would be nice to push users to a SUCCESS page after submitting a new note
 function NotesPage() {
     //! Hooks
     const dispatch = useDispatch();
