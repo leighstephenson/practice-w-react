@@ -19,6 +19,7 @@ router.delete('/:id', (req, res) => {
   })
 });
 
+//TODO need to add in the req.user.id
 //! Add a new note
 router.post('/', (req, res) => {
   const insertNoteQuery = `INSERT INTO "notelist"

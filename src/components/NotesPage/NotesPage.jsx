@@ -1,7 +1,7 @@
 import { Button, Typography, Card } from "@mui/material";
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import './NotesPage.css'
 
@@ -15,7 +15,6 @@ function NotesPage() {
     const [noteTitle, setNoteTitle] = useState('');
     const [dateadded, setDateAdded] = useState('');
     const [note, setNote] = useState('');
-
     //! States
     let [newNote, setNewNote] = useState({ noteTitle: '', dateAdded: '', noteContent: '' })
 
@@ -53,6 +52,7 @@ function NotesPage() {
         setNewNote({ ...newNote, noteContent: event.target.value });
     }
 
+    //! What displays
     return (
         <>
             <center>

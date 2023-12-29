@@ -3,6 +3,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { Typography } from '@mui/material';
 import Card from '@mui/material/Card';
+import { useParams } from 'react-router-dom';
 import './UserPage.css';
 
 
@@ -12,6 +13,7 @@ function UserPage() {
   //! Hooks and store
   const dispatch = useDispatch();
   const notes = useSelector(store => store.notes);
+  let { id } = useParams();
 
   //! Fetch list of notes
   useEffect(() => {
@@ -23,6 +25,13 @@ function UserPage() {
     dispatch({ type: 'SET_SELECTED_NOTE', payload: note })
     console.log(`You selected the note with this title: ${note.notetitle}`);
   };
+
+  //! Delete note from db 
+  const deleteNote = () => {
+    if (window.confirm("Warning: This note will be deleted")) {
+      dispatch({ type: 'DELETE_NOTE', payload: id });
+    }
+  }
 
   //! What displays
   return (
@@ -75,10 +84,12 @@ function UserPage() {
 
               <h2 className='noteDescriptors'> Note: </h2>
               <p>{note.notecontent} </p>
-              
+
               <Typography variant="h7"> Date Added: {note.dateadded}</Typography>
+              
+              <br /> <br />
 
-
+              <button className="btn" onClick={deleteNote}> DELETE </button>
             </Card>
           );
         })

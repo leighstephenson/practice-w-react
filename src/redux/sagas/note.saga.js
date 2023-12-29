@@ -22,11 +22,11 @@ function* fetchAllNotes() {
 }
 
 //! Delete note
-//TODO finish hooking this up
+//TODO running into error here, not getting id of note to delete
 function* deleteNote(action) {
     try {
-        yield axios.delete(`/api/note/${action.payload}`)
-        yield put ({ type: 'FETCH_KITS'});
+        yield axios.delete(`/api/notes/${action.payload}`)
+        yield put ({ type: 'FETCH_NOTES'});
     } catch (error) {
         console.log(`Error in deleteNote in saga ${error}`);
     }
@@ -34,7 +34,7 @@ function* deleteNote(action) {
 
 function* noteSaga() {
     yield takeEvery('FETCH_NOTES', fetchAllNotes);
-    yield takeEvery('ADD_NEW_NOTE', addNewNote)
+    yield takeEvery('ADD_NEW_NOTE', addNewNote);
     yield takeEvery ('DELETE_NOTE', deleteNote)
 }; //End kitSaga()
 
