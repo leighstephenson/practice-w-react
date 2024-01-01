@@ -22,7 +22,7 @@ function* fetchAllNotes() {
 }
 
 //! Delete note
-//TODO running into error here, not getting id of note to delete
+//TODO running into error here
 function* deleteNote(action) {
     try {
         yield axios.delete(`/api/notes/${action.payload}`)

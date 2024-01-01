@@ -4,13 +4,15 @@ const router = express.Router();
 
 //*TODO edit
 
+//? getting 500 server error
 //! Delete note
 router.delete('/:id', (req, res) => {
   let deletedNote = req.params.id;
   //Query to delete specific note based on id
   let deleteNoteQuery = `DELETE FROM "notelist" WHERE "id" = $1;`
   pool.query(deleteNoteQuery, [deletedNote])
-  .then(() => {
+  .then((result) => {
+    console.log("Task deleted");
     res.sendStatus(200);
   })
   .catch((error) => {
